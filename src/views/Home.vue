@@ -1,21 +1,16 @@
 /* eslint-disable */
 <template>
-  <div class="wraper">
-    <div class="search">
-      <label for="search">Search</label>
-      <input type="text" name="search" v-model="searchValue" @input="handleInput" />
-    </div>
-    <ul>
-      <li v-for="result in results" :key="result.data[0].nasa_id">
-        <p>{{ result.links[0].href }}</p>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <Heading />
+    <SearchInput />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import debounce from 'lodash.debounce';
+import Heading from '@/components/Heading.vue';
+import SearchInput from '@/components/SearchInput.vue';
 
 const URL = 'https://images-api.nasa.gov/';
 
@@ -26,6 +21,10 @@ export default {
       searchValue: '',
       results: [],
     };
+  },
+  components: {
+    Heading,
+    SearchInput,
   },
   methods: {
     handleInput: debounce(function () {
@@ -42,29 +41,19 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.wraper {
+<style lang="scss">
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 0;
-  padding: 0;
+  padding: 30px;
   width: 100%;
-}
-
-.search {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-
-  label {
-    font-family: Montserrat, sans-serif;
-    font-weight: bold;
-  }
-  input {
-    height: 30px;
-    border: 0;
-    border-bottom: 1px solid black;
-  }
+  height: 100vh;
+  background-image: url('../assets/heroimage.jpg');
+  background-repeat: no-repeat;
+  block-size: cover;
+  background-position: 31% 90%;
 }
 </style>
