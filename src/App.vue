@@ -15,6 +15,9 @@
     box-sizing: border-box;
   }
 
+  input:focus, textarea:focus, select:focus{
+        outline: none;
+  }
   body{
     margin: 0;
     padding: 0;

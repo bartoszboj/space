@@ -1,4 +1,3 @@
-/*eslint linebreak-style: ["error", "windows"]*/
 <template>
   <div class="headingWrapper">
     <h1 class="claim">SpaceXD</h1>
@@ -24,6 +23,8 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: rgb(209, 208, 208);
+    text-shadow: 3px 3px 5px black;
     }
     .claim{
         font-size: 50px;

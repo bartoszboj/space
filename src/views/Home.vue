@@ -1,6 +1,7 @@
 /* eslint-disable */
 <template>
   <div class="wrapper">
+    <HeroImage />
     <Heading />
     <SearchInput />
   </div>
@@ -11,6 +12,7 @@ import axios from 'axios';
 import debounce from 'lodash.debounce';
 import Heading from '@/components/Heading.vue';
 import SearchInput from '@/components/SearchInput.vue';
+import HeroImage from '@/components/HeroImage.vue';
 
 const URL = 'https://images-api.nasa.gov/';
 
@@ -25,6 +27,7 @@ export default {
   components: {
     Heading,
     SearchInput,
+    HeroImage,
   },
   methods: {
     handleInput: debounce(function () {
@@ -36,7 +39,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    }, 500),
+    }, 1000),
   },
 };
 </script>
@@ -51,9 +54,5 @@ export default {
   padding: 30px;
   width: 100%;
   height: 100vh;
-  background-image: url('../assets/heroimage.jpg');
-  background-repeat: no-repeat;
-  block-size: cover;
-  background-position: 31% 90%;
 }
 </style>
